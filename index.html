@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body background changer</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        button{
+            display: inline-block;
+            background-color: bisque;
+            border-radius: 10px;
+            border: none;
+            width: 40%;
+            height: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px; /* Add spacing between buttons */
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Change color</button>
+    <button id="reset">Reset</button>
+</body>
+<script>
+    const changeButton = document.getElementById('btn');
+    const resetButton = document.getElementById('reset');
+    const body = document.body;
+   
+
+changeButton.addEventListener('click', () => {
+        body.style.backgroundColor = getRandomColor();
+});
+
+resetButton.addEventListener('click',()=>{
+    body.style.backgroundColor = 'white';
+})
+
+function getRandomColor(){
+    return `rgb(${Math.floor(Math.random()*256)},
+                ${Math.floor(Math.random()*256)},
+                ${Math.floor(Math.random()*256)})`;
+}
+</script>
+</html>
